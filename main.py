@@ -3,6 +3,7 @@ from pathlib import Path
 from function import formToDayOfYear, remove_duplicate_title, remove_short_research, remove_inferior_research, get_eng_research, remove_review_or_survey_research
 
 input_path = Path(__file__).parent / "input" / "Raw_data.csv"
+output_path = Path(__file__).parent / "output" / "output_research.csv"
 
 df = pd.read_csv(input_path, encoding='latin1')
 
@@ -44,4 +45,6 @@ print(f'I removed {removeSurveyOrReviewResearch} survey and review researchs !!'
 print(f'Now it has {numResearchAfterRemoveSurveyOrReview} researchs !!!')
 print("-"*20)
 
+#! export file
+df.to_csv(output_path, index=False, encoding='utf-8')
 print('Done!')
