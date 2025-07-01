@@ -8,11 +8,10 @@ def formToDayOfYear(df, nameCol, outputCol='Day of year'):
 
     def dayParse(value):
         if pd.isnull(value) or str(value).strip() == '':
-            return 0  # Trường hợp giá trị rỗng hoặc null → trả về 0
+            return 0  
 
         s = str(value).strip().upper()
 
-        # Nếu chỉ có tên tháng như "JAN", "FEB" → thêm ngày = 1
         if re.fullmatch(r'[A-Z]{3}', s):
             s += ' 1'
 
